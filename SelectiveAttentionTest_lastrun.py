@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juni 10, 2022, at 08:22
+    on juni 10, 2022, at 08:48
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\psychoPy\\SelectiveAttentionTest\\SelectiveAttentionTest_lastrun.py',
+    originPath='C:\\psychoPy\\SelectiveAttention\\SelectiveAttentionTest_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -214,7 +214,7 @@ mouse.mouseClock = core.Clock()
 blackimage = visual.ImageStim(
     win=win,
     name='blackimage', 
-    image='black.png', mask=None, anchor='center',
+    image='graphic/black.png', mask=None, anchor='center',
     ori=0.0, pos=(0, 0), size=(1, 1),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -235,7 +235,7 @@ Faster = visual.TextStim(win=win, name='Faster',
 happy = visual.ImageStim(
     win=win,
     name='happy', 
-    image='happyface.png', mask=None, anchor='center',
+    image='graphic/happyface.png', mask=None, anchor='center',
     ori=0.0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
@@ -243,7 +243,7 @@ happy = visual.ImageStim(
 sad = visual.ImageStim(
     win=win,
     name='sad', 
-    image='sadface.png', mask=None, anchor='center',
+    image='graphic/sadface.png', mask=None, anchor='center',
     ori=0.0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
@@ -255,7 +255,7 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 
 # ------Prepare to start Routine "Intro"-------
 continueRoutine = True
-routineTimer.add(1.000000)
+routineTimer.add(4.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
 IntroComponents = [IntroText]
@@ -291,7 +291,7 @@ while continueRoutine and routineTimer.getTime() > 0:
         IntroText.setAutoDraw(True)
     if IntroText.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > IntroText.tStartRefresh + 1-frameTolerance:
+        if tThisFlipGlobal > IntroText.tStartRefresh + 4-frameTolerance:
             # keep track of stop time/frame for later
             IntroText.tStop = t  # not accounting for scr refresh
             IntroText.frameNStop = frameN  # exact frame index
