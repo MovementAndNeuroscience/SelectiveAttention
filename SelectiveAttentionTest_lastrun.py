@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juni 10, 2022, at 08:48
+    on juni 13, 2022, at 12:07
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -65,9 +65,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0, 
+    size=[2560, 1440], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -105,8 +105,8 @@ IntroText = visual.TextStim(win=win, name='IntroText',
 FixationCrossClock = core.Clock()
 FixationCrossText = visual.TextStim(win=win, name='FixationCrossText',
     text='X',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -114,11 +114,11 @@ FixationCrossText = visual.TextStim(win=win, name='FixationCrossText',
 # Initialize components for Routine "VisualDistractorStimuli"
 VisualDistractorStimuliClock = core.Clock()
 # setup variables to control the experiment
-distractorPos = (0.0,0.4)
-filler_up_left_pos = (-0.3,0.2)
-filler_low_left_pos = (-0.3,-0.2)
-filler_low_right_pos = (0.3,-0.2)
-filler_up_right_pos = (0.3,0.2)
+distractorPos = (0.0,0.2)
+filler_up_left_pos = (-0.15,0.1)
+filler_low_left_pos = (-0.15,-0.1)
+filler_low_right_pos = (0.15,-0.1)
+filler_up_right_pos = (0.15,0.1)
 allowedBNeutral = 2; 
 allowedBIncongruence = 2; 
 allowedBCongruence = 2;
@@ -139,67 +139,60 @@ l_fillerpos = (1,1)
 y_fillerpos = (1,1)
 p_Target = visual.TextStim(win=win, name='p_Target',
     text='',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Arial',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
 b_Target = visual.TextStim(win=win, name='b_Target',
     text='b',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Arial',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-2.0);
 p_Distractor = visual.TextStim(win=win, name='p_Distractor',
     text='p',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 b_Distractor = visual.TextStim(win=win, name='b_Distractor',
     text='b',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-4.0);
 g_Distractor = visual.TextStim(win=win, name='g_Distractor',
     text='g',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-5.0);
 h_Filler = visual.TextStim(win=win, name='h_Filler',
     text='h',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-6.0);
 l_Filler = visual.TextStim(win=win, name='l_Filler',
     text='l',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-7.0);
 y_filler = visual.TextStim(win=win, name='y_filler',
     text='y',
-    font='Open Sans',
-    pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-8.0);
-Middle_Dot = visual.TextStim(win=win, name='Middle_Dot',
-    text='.',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-9.0);
 
 # Initialize components for Routine "Black"
 BlackClock = core.Clock()
@@ -227,8 +220,8 @@ sadOpacity = 0.0;
 happyOpacity = 0.0; 
 Faster = visual.TextStim(win=win, name='Faster',
     text='Hurtigere',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    font='Open Sans ExtraBold',
+    pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=1.0, 
     languageStyle='LTR',
     depth=-1.0);
@@ -541,7 +534,9 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     
     p_Target.setPos(p_targetpos)
     p_Target.setText('p')
+    p_Target.setFont('Open Sans ExtraBold')
     b_Target.setPos(b_targetpos)
+    b_Target.setFont('Open Sans ExtraBold')
     p_Distractor.setPos(p_distractorpos)
     b_Distractor.setPos(b_distractorpos)
     g_Distractor.setPos(g_distractorpos)
@@ -549,7 +544,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     l_Filler.setPos(l_fillerpos)
     y_filler.setPos(y_fillerpos)
     # keep track of which components have finished
-    VisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler, Middle_Dot]
+    VisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler]
     for thisComponent in VisualDistractorStimuliComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -708,23 +703,6 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
                 win.timeOnFlip(y_filler, 'tStopRefresh')  # time at next scr refresh
                 y_filler.setAutoDraw(False)
         
-        # *Middle_Dot* updates
-        if Middle_Dot.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            Middle_Dot.frameNStart = frameN  # exact frame index
-            Middle_Dot.tStart = t  # local t and not account for scr refresh
-            Middle_Dot.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(Middle_Dot, 'tStartRefresh')  # time at next scr refresh
-            Middle_Dot.setAutoDraw(True)
-        if Middle_Dot.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > Middle_Dot.tStartRefresh + 0.2-frameTolerance:
-                # keep track of stop time/frame for later
-                Middle_Dot.tStop = t  # not accounting for scr refresh
-                Middle_Dot.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(Middle_Dot, 'tStopRefresh')  # time at next scr refresh
-                Middle_Dot.setAutoDraw(False)
-        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -762,14 +740,12 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     VisualDistractionTrials.addData('l_Filler.stopped', l_Filler.tStopRefresh)
     VisualDistractionTrials.addData('y_filler.started', y_filler.tStartRefresh)
     VisualDistractionTrials.addData('y_filler.stopped', y_filler.tStopRefresh)
-    VisualDistractionTrials.addData('Middle_Dot.started', Middle_Dot.tStartRefresh)
-    VisualDistractionTrials.addData('Middle_Dot.stopped', Middle_Dot.tStopRefresh)
     
     # ------Prepare to start Routine "Black"-------
     continueRoutine = True
     routineTimer.add(0.500000)
     # update component parameters for each repeat
-    enableHappyFace = False;
+    enableHappyface = False;
     enableSadface = False;
     enableFaster = False;
     
