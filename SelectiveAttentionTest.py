@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.1),
-    on juni 16, 2022, at 17:13
+    on juni 16, 2022, at 15:48
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\dqz718\\Documents\\12. Cognitive Tasks\\SelectiveAttention\\SelectiveAttentionTest_lastrun.py',
+    originPath='C:\\Users\\dqz718\\Documents\\12. Cognitive Tasks\\SelectiveAttention\\SelectiveAttentionTest.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -115,7 +115,7 @@ FixationCrossText = visual.TextStim(win=win, name='FixationCrossText',
 # Initialize components for Routine "VisualDistractorStimuli"
 VisualDistractorStimuliClock = core.Clock()
 # setup variables to control the experiment
-distractorPos = (0.0,0.3)
+distractorPos = (0.0,0.2)
 filler_up_left_pos = (-0.15,0.1)
 filler_low_left_pos = (-0.15,-0.1)
 filler_low_right_pos = (0.15,-0.1)
@@ -138,60 +138,59 @@ g_distractorpos = (1,1)
 h_fillerpos = (1,1)
 l_fillerpos = (1,1)
 y_fillerpos = (1,1)
-
 p_Target = visual.TextStim(win=win, name='p_Target',
     text='',
     font='Arial',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
 b_Target = visual.TextStim(win=win, name='b_Target',
     text='b',
     font='Arial',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-2.0);
 p_Distractor = visual.TextStim(win=win, name='p_Distractor',
     text='p',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 b_Distractor = visual.TextStim(win=win, name='b_Distractor',
     text='b',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-4.0);
 g_Distractor = visual.TextStim(win=win, name='g_Distractor',
     text='g',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-5.0);
 h_Filler = visual.TextStim(win=win, name='h_Filler',
     text='h',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-6.0);
 l_Filler = visual.TextStim(win=win, name='l_Filler',
     text='l',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-7.0);
 y_filler = visual.TextStim(win=win, name='y_filler',
     text='y',
     font='Open Sans ExtraBold',
-    pos=[0,0], height=0.08, wrapWidth=None, ori=0.0, 
+    pos=[0,0], height=0.07, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-8.0);
@@ -200,17 +199,17 @@ isItB = False;
 enableSadface = False;
 enableHappyface = False;
 enableFaster = False;
-whiteimage = visual.ImageStim(
+whiteimage_2 = visual.ImageStim(
     win=win,
-    name='whiteimage', 
+    name='whiteimage_2', 
     image='graphic/black.png', mask=None, anchor='center',
     ori=0.0, pos=(0, 0), size=(1, 1),
     color=[1.0000, 1.0000, 1.0000], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-10.0)
-mouse = event.Mouse(win=win)
+mouse_2 = event.Mouse(win=win)
 x, y = [None, None]
-mouse.mouseClock = core.Clock()
+mouse_2.mouseClock = core.Clock()
 
 # Initialize components for Routine "Feedback"
 FeedbackClock = core.Clock()
@@ -580,17 +579,17 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     if targetletter == 'b':
         isItB = True;
         isItP = False; 
-    # setup some python lists for storing info about the mouse
-    mouse.x = []
-    mouse.y = []
-    mouse.leftButton = []
-    mouse.midButton = []
-    mouse.rightButton = []
-    mouse.time = []
+    # setup some python lists for storing info about the mouse_2
+    mouse_2.x = []
+    mouse_2.y = []
+    mouse_2.leftButton = []
+    mouse_2.midButton = []
+    mouse_2.rightButton = []
+    mouse_2.time = []
     gotValidClick = False  # until a click is received
-    mouse.mouseClock.reset()
+    mouse_2.mouseClock.reset()
     # keep track of which components have finished
-    VisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler, whiteimage, mouse]
+    VisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler, whiteimage_2, mouse_2]
     for thisComponent in VisualDistractorStimuliComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -770,52 +769,52 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             enableSadface = True;
             enableFaster = False; 
         
-        # *whiteimage* updates
-        if whiteimage.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+        # *whiteimage_2* updates
+        if whiteimage_2.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
-            whiteimage.frameNStart = frameN  # exact frame index
-            whiteimage.tStart = t  # local t and not account for scr refresh
-            whiteimage.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(whiteimage, 'tStartRefresh')  # time at next scr refresh
-            whiteimage.setAutoDraw(True)
-        if whiteimage.status == STARTED:
+            whiteimage_2.frameNStart = frameN  # exact frame index
+            whiteimage_2.tStart = t  # local t and not account for scr refresh
+            whiteimage_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(whiteimage_2, 'tStartRefresh')  # time at next scr refresh
+            whiteimage_2.setAutoDraw(True)
+        if whiteimage_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > whiteimage.tStartRefresh + 0.5-frameTolerance:
+            if tThisFlipGlobal > whiteimage_2.tStartRefresh + 0.5-frameTolerance:
                 # keep track of stop time/frame for later
-                whiteimage.tStop = t  # not accounting for scr refresh
-                whiteimage.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(whiteimage, 'tStopRefresh')  # time at next scr refresh
-                whiteimage.setAutoDraw(False)
-        # *mouse* updates
-        if mouse.status == NOT_STARTED and t >= 0.2-frameTolerance:
+                whiteimage_2.tStop = t  # not accounting for scr refresh
+                whiteimage_2.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(whiteimage_2, 'tStopRefresh')  # time at next scr refresh
+                whiteimage_2.setAutoDraw(False)
+        # *mouse_2* updates
+        if mouse_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            mouse.frameNStart = frameN  # exact frame index
-            mouse.tStart = t  # local t and not account for scr refresh
-            mouse.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
-            mouse.status = STARTED
-            prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-        if mouse.status == STARTED:
+            mouse_2.frameNStart = frameN  # exact frame index
+            mouse_2.tStart = t  # local t and not account for scr refresh
+            mouse_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(mouse_2, 'tStartRefresh')  # time at next scr refresh
+            mouse_2.status = STARTED
+            prevButtonState = mouse_2.getPressed()  # if button is down already this ISN'T a new click
+        if mouse_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse.tStartRefresh + 0.5-frameTolerance:
+            if tThisFlipGlobal > mouse_2.tStartRefresh + 0.7-frameTolerance:
                 # keep track of stop time/frame for later
-                mouse.tStop = t  # not accounting for scr refresh
-                mouse.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(mouse, 'tStopRefresh')  # time at next scr refresh
-                mouse.status = FINISHED
-        if mouse.status == STARTED:  # only update if started and not finished!
-            buttons = mouse.getPressed()
+                mouse_2.tStop = t  # not accounting for scr refresh
+                mouse_2.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(mouse_2, 'tStopRefresh')  # time at next scr refresh
+                mouse_2.status = FINISHED
+        if mouse_2.status == STARTED:  # only update if started and not finished!
+            buttons = mouse_2.getPressed()
             if buttons != prevButtonState:  # button state changed?
                 prevButtonState = buttons
                 if sum(buttons) > 0:  # state changed to a new click
-                    x, y = mouse.getPos()
-                    mouse.x.append(x)
-                    mouse.y.append(y)
-                    buttons = mouse.getPressed()
-                    mouse.leftButton.append(buttons[0])
-                    mouse.midButton.append(buttons[1])
-                    mouse.rightButton.append(buttons[2])
-                    mouse.time.append(mouse.mouseClock.getTime())
+                    x, y = mouse_2.getPos()
+                    mouse_2.x.append(x)
+                    mouse_2.y.append(y)
+                    buttons = mouse_2.getPressed()
+                    mouse_2.leftButton.append(buttons[0])
+                    mouse_2.midButton.append(buttons[1])
+                    mouse_2.rightButton.append(buttons[2])
+                    mouse_2.time.append(mouse_2.mouseClock.getTime())
                     
                     continueRoutine = False  # abort routine on response
         
@@ -870,20 +869,17 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     if enableFaster == True:   
         thisExp.addData('Response', 'None')
         thisExp.addData('Response_code', 0.0)
-        
-    
-    
-    VisualDistractionTrials.addData('whiteimage.started', whiteimage.tStartRefresh)
-    VisualDistractionTrials.addData('whiteimage.stopped', whiteimage.tStopRefresh)
+    VisualDistractionTrials.addData('whiteimage_2.started', whiteimage_2.tStartRefresh)
+    VisualDistractionTrials.addData('whiteimage_2.stopped', whiteimage_2.tStopRefresh)
     # store data for VisualDistractionTrials (TrialHandler)
-    VisualDistractionTrials.addData('mouse.x', mouse.x)
-    VisualDistractionTrials.addData('mouse.y', mouse.y)
-    VisualDistractionTrials.addData('mouse.leftButton', mouse.leftButton)
-    VisualDistractionTrials.addData('mouse.midButton', mouse.midButton)
-    VisualDistractionTrials.addData('mouse.rightButton', mouse.rightButton)
-    VisualDistractionTrials.addData('mouse.time', mouse.time)
-    VisualDistractionTrials.addData('mouse.started', mouse.tStart)
-    VisualDistractionTrials.addData('mouse.stopped', mouse.tStop)
+    VisualDistractionTrials.addData('mouse_2.x', mouse_2.x)
+    VisualDistractionTrials.addData('mouse_2.y', mouse_2.y)
+    VisualDistractionTrials.addData('mouse_2.leftButton', mouse_2.leftButton)
+    VisualDistractionTrials.addData('mouse_2.midButton', mouse_2.midButton)
+    VisualDistractionTrials.addData('mouse_2.rightButton', mouse_2.rightButton)
+    VisualDistractionTrials.addData('mouse_2.time', mouse_2.time)
+    VisualDistractionTrials.addData('mouse_2.started', mouse_2.tStart)
+    VisualDistractionTrials.addData('mouse_2.stopped', mouse_2.tStop)
     
     # ------Prepare to start Routine "Feedback"-------
     continueRoutine = True
