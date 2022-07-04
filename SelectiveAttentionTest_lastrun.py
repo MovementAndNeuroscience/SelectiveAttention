@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juni 21, 2022, at 08:52
+    on juni 27, 2022, at 10:09
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -720,13 +720,13 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             allowedPNeutral = allowedPNeutral -1; 
             thisExp.addData('Condition', 'Neutral')
             return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'p' and allowedBCongruence > 0:
-            allowedBCongruence = allowedBCongruence -1; 
-            thisExp.addData('Condition', 'Congruent')
-            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'b' and allowedBIncongruence > 0:
+        elif target == 'b' and dist == 'p' and allowedBIncongruence > 0:
             allowedBIncongruence = allowedBIncongruence -1; 
             thisExp.addData('Condition', 'Incongruent')
+            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
+        elif target == 'b' and dist == 'b' and allowedBCongruence > 0:
+            allowedBCongruence = allowedBCongruence -1; 
+            thisExp.addData('Condition', 'Congruent')
             return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;   
         elif target == 'b' and dist == 'g' and allowedBNeutral > 0:
             allowedBNeutral = allowedBNeutral -1; 
@@ -1492,13 +1492,13 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
             allowedPNeutral = allowedPNeutral -1; 
             thisExp.addData('Condition', 'Neutral')
             return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'p' and allowedBCongruence > 0:
-            allowedBCongruence = allowedBCongruence -1; 
-            thisExp.addData('Condition', 'Congruent')
-            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'b' and allowedBIncongruence > 0:
+        elif target == 'b' and dist == 'p' and allowedBIncongruence > 0:
             allowedBIncongruence = allowedBIncongruence -1; 
             thisExp.addData('Condition', 'Incongruent')
+            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
+        elif target == 'b' and dist == 'b' and allowedBCongruence > 0:
+            allowedBCongruence = allowedBCongruence -1; 
+            thisExp.addData('Condition', 'Congruent')
             return target, dist, allowedPCongruence, allowedPIncongruenceA, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;   
         elif target == 'b' and dist == 'g' and allowedBNeutral > 0:
             allowedBNeutral = allowedBNeutral -1; 
@@ -2324,13 +2324,13 @@ for thisAudioDistractorFile in AudioDistractorFiles:
             allowedPNeutral = allowedPNeutral -1; 
             thisExp.addData('Condition', 'Neutral')
             return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'p' and allowedBCongruence > 0:
-            allowedBCongruence = allowedBCongruence -1; 
-            thisExp.addData('Condition', 'Congruent')
-            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
-        elif target == 'b' and dist == 'b' and allowedBIncongruence > 0:
+        elif target == 'b' and dist == 'p' and allowedBIncongruence > 0:
             allowedBIncongruence = allowedBIncongruence -1; 
             thisExp.addData('Condition', 'Incongruent')
+            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;
+        elif target == 'b' and dist == 'b' and allowedBCongruence > 0:
+            allowedBCongruence = allowedBCongruence -1; 
+            thisExp.addData('Condition', 'Congruent')
             return target, dist, allowedPCongruence, allowedPIncongruenceA, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;   
         elif target == 'b' and dist == 'g' and allowedBNeutral > 0:
             allowedBNeutral = allowedBNeutral -1; 
