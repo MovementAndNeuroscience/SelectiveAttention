@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juni 27, 2022, at 10:09
+    on juli 13, 2022, at 15:08
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -332,13 +332,13 @@ y_filler = visual.TextStim(win=win, name='y_filler',
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-8.0);
-p_Dis_Sound = sound.Sound('audio/p.wav', secs=0.2, stereo=True, hamming=False,
+p_Dis_Sound = sound.Sound('audio/p_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='p_Dis_Sound')
 p_Dis_Sound.setVolume(1.0)
-b_Dis_Sound = sound.Sound('audio/b.wav', secs=0.2, stereo=True, hamming=False,
+b_Dis_Sound = sound.Sound('audio/p_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='b_Dis_Sound')
 b_Dis_Sound.setVolume(1.0)
-g_Dis_Sound = sound.Sound('audio/g.wav', secs=0.2, stereo=True, hamming=False,
+g_Dis_Sound = sound.Sound('audio/g_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='g_Dis_Sound')
 g_Dis_Sound.setVolume(1.0)
 mouse = event.Mouse(win=win)
@@ -449,13 +449,13 @@ y_filler_3 = visual.TextStim(win=win, name='y_filler_3',
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-5.0);
-p_Dis_Sound_2 = sound.Sound('audio/p.wav', secs=0.2, stereo=True, hamming=False,
+p_Dis_Sound_2 = sound.Sound('audio/p_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='p_Dis_Sound_2')
 p_Dis_Sound_2.setVolume(1.0)
-b_Dis_Sound_2 = sound.Sound('audio/b.wav', secs=0.2, stereo=True, hamming=False,
+b_Dis_Sound_2 = sound.Sound('audio/b_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='b_Dis_Sound_2')
 b_Dis_Sound_2.setVolume(1.0)
-g_Dis_Sound_2 = sound.Sound('audio/g.wav', secs=0.2, stereo=True, hamming=False,
+g_Dis_Sound_2 = sound.Sound('audio/g_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='g_Dis_Sound_2')
 g_Dis_Sound_2.setVolume(1.0)
 mouse_3 = event.Mouse(win=win)
@@ -686,7 +686,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     
     # ------Prepare to start Routine "VisualDistractorStimuli"-------
     continueRoutine = True
-    routineTimer.add(0.700000)
+    routineTimer.add(5.200000)
     # update component parameters for each repeat
     p_targetpos = (1,1)
     b_targetpos = (1,1)
@@ -830,6 +830,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     enableHappyface = False;
     enableSadface = False;
     enableFaster = False;
+    mousepressed = 0; 
     
     if targetletter == 'p':
         isItP = True;
@@ -1011,22 +1012,26 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
         
         buttons = mouse.getPressed()
         
-        if isItP and buttons[0] == 1:
+        if isItP and buttons[0] == 1 and mousepressed == 0 :
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False; 
-        elif isItB and buttons[2] == 1:
+            mousepressed += 1;
+        elif isItB and buttons[2] == 1 and mousepressed == 0 :
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False;
-        elif isItP and buttons[2] == 1:
+            mousepressed += 1;
+        elif isItP and buttons[2] == 1 and mousepressed == 0 :
             enableHappyface = False;
             enableSadface = True;
-            enableFaster = False;  
-        elif isItB and buttons[0] == 1:
+            enableFaster = False;
+            mousepressed += 1;
+        elif isItB and buttons[0] == 1 and mousepressed == 0 :
             enableHappyface = False;
             enableSadface = True;
-            enableFaster = False; 
+            enableFaster = False;
+            mousepressed += 1;
         # *mouse_2* updates
         if mouse_2.status == NOT_STARTED and t >= 0-frameTolerance:
             # keep track of start time/frame for later
@@ -1038,7 +1043,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             prevButtonState = mouse_2.getPressed()  # if button is down already this ISN'T a new click
         if mouse_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse_2.tStartRefresh + 0.7-frameTolerance:
+            if tThisFlipGlobal > mouse_2.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
                 mouse_2.tStop = t  # not accounting for scr refresh
                 mouse_2.frameNStop = frameN  # exact frame index
@@ -1057,8 +1062,6 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
                     mouse_2.midButton.append(buttons[1])
                     mouse_2.rightButton.append(buttons[2])
                     mouse_2.time.append(mouse_2.mouseClock.getTime())
-                    
-                    continueRoutine = False  # abort routine on response
         
         # *whiteimage_2* updates
         if whiteimage_2.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -1070,7 +1073,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             whiteimage_2.setAutoDraw(True)
         if whiteimage_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > whiteimage_2.tStartRefresh + 0.5-frameTolerance:
+            if tThisFlipGlobal > whiteimage_2.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 whiteimage_2.tStop = t  # not accounting for scr refresh
                 whiteimage_2.frameNStop = frameN  # exact frame index
@@ -1458,7 +1461,7 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
     
     # ------Prepare to start Routine "AudioVisualDistractorStimuli"-------
     continueRoutine = True
-    routineTimer.add(0.700000)
+    routineTimer.add(5.200000)
     # update component parameters for each repeat
     p_targetpos = (1,1)
     b_targetpos = (1,1)
@@ -1602,15 +1605,16 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
     h_Filler.setPos(h_fillerpos)
     l_Filler.setPos(l_fillerpos)
     y_filler.setPos(y_fillerpos)
-    p_Dis_Sound.setSound('audio/p.wav', secs=0.2, hamming=False)
+    p_Dis_Sound.setSound('audio/p_combined.wav', secs=0.2, hamming=False)
     p_Dis_Sound.setVolume(p_dis_volume, log=False)
-    b_Dis_Sound.setSound('audio/b.wav', secs=0.2, hamming=False)
+    b_Dis_Sound.setSound('audio/p_combined.wav', secs=0.2, hamming=False)
     b_Dis_Sound.setVolume(b_dis_volume, log=False)
-    g_Dis_Sound.setSound('audio/g.wav', secs=0.2, hamming=False)
+    g_Dis_Sound.setSound('audio/g_combined.wav', secs=0.2, hamming=False)
     g_Dis_Sound.setVolume(g_dis_volume, log=False)
     enableHappyface = False;
     enableSadface = False;
     enableFaster = False;
+    mousepressed = 0;
     
     if targetletter == 'p':
         isItP = True;
@@ -1837,22 +1841,26 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
         
         buttons = mouse.getPressed()
         
-        if isItP and buttons[0] == 1:
+        if isItP and buttons[0] == 1 and mousepressed == 0:
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False; 
-        elif isItB and buttons[2] == 1:
+            mousepressed += 1;
+        elif isItB and buttons[2] == 1 and mousepressed == 0:
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False;
-        elif isItP and buttons[2] == 1:
+            mousepressed += 1;
+        elif isItP and buttons[2] == 1 and mousepressed == 0:
             enableHappyface = False;
             enableSadface = True;
-            enableFaster = False;  
-        elif isItB and buttons[0] == 1:
+            enableFaster = False;
+            mousepressed += 1;
+        elif isItB and buttons[0] == 1 and mousepressed == 0:
             enableHappyface = False;
             enableSadface = True;
             enableFaster = False; 
+            mousepressed += 1;
         # *mouse* updates
         if mouse.status == NOT_STARTED and t >= 0-frameTolerance:
             # keep track of start time/frame for later
@@ -1864,7 +1872,7 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
             prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
         if mouse.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse.tStartRefresh + 0.7-frameTolerance:
+            if tThisFlipGlobal > mouse.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
                 mouse.tStop = t  # not accounting for scr refresh
                 mouse.frameNStop = frameN  # exact frame index
@@ -1883,8 +1891,6 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
                     mouse.midButton.append(buttons[1])
                     mouse.rightButton.append(buttons[2])
                     mouse.time.append(mouse.mouseClock.getTime())
-                    
-                    continueRoutine = False  # abort routine on response
         
         # *whiteimage* updates
         if whiteimage.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -1896,7 +1902,7 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
             whiteimage.setAutoDraw(True)
         if whiteimage.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > whiteimage.tStartRefresh + 0.5-frameTolerance:
+            if tThisFlipGlobal > whiteimage.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 whiteimage.tStop = t  # not accounting for scr refresh
                 whiteimage.frameNStop = frameN  # exact frame index
@@ -2293,7 +2299,7 @@ for thisAudioDistractorFile in AudioDistractorFiles:
     
     # ------Prepare to start Routine "AudioDistractorStimuli"-------
     continueRoutine = True
-    routineTimer.add(0.700000)
+    routineTimer.add(5.200000)
     # update component parameters for each repeat
     p_targetpos = (1,1)
     b_targetpos = (1,1)
@@ -2428,15 +2434,16 @@ for thisAudioDistractorFile in AudioDistractorFiles:
     h_Filler_3.setPos(h_fillerpos)
     l_Filler_3.setPos(l_fillerpos)
     y_filler_3.setPos(y_fillerpos)
-    p_Dis_Sound_2.setSound('audio/p.wav', secs=0.2, hamming=False)
+    p_Dis_Sound_2.setSound('audio/p_combined.wav', secs=0.2, hamming=False)
     p_Dis_Sound_2.setVolume(p_dis_volume, log=False)
-    b_Dis_Sound_2.setSound('audio/b.wav', secs=0.2, hamming=False)
+    b_Dis_Sound_2.setSound('audio/b_combined.wav', secs=0.2, hamming=False)
     b_Dis_Sound_2.setVolume(b_dis_volume, log=False)
-    g_Dis_Sound_2.setSound('audio/g.wav', secs=0.2, hamming=False)
+    g_Dis_Sound_2.setSound('audio/g_combined.wav', secs=0.2, hamming=False)
     g_Dis_Sound_2.setVolume(g_dis_volume, log=False)
     enableHappyface = False;
     enableSadface = False;
     enableFaster = False;
+    mousepressed = 0; 
     
     if targetletter == 'p':
         isItP = True;
@@ -2612,22 +2619,26 @@ for thisAudioDistractorFile in AudioDistractorFiles:
         
         buttons = mouse.getPressed()
         
-        if isItP and buttons[0] == 1:
+        if isItP and buttons[0] == 1 and mousepressed == 0:
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False; 
-        elif isItB and buttons[2] == 1:
+            mousepressed += 1; 
+        elif isItB and buttons[2] == 1 and mousepressed == 0:
             enableHappyface = True;
             enableSadface = False;
             enableFaster = False;
-        elif isItP and buttons[2] == 1:
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False;  
-        elif isItB and buttons[0] == 1:
+            mousepressed += 1; 
+        elif isItP and buttons[2] == 1 and mousepressed == 0:
             enableHappyface = False;
             enableSadface = True;
             enableFaster = False; 
+            mousepressed += 1; 
+        elif isItB and buttons[0] == 1 and mousepressed == 0:
+            enableHappyface = False;
+            enableSadface = True;
+            enableFaster = False; 
+            mousepressed += 1; 
         # *mouse_3* updates
         if mouse_3.status == NOT_STARTED and t >= 0-frameTolerance:
             # keep track of start time/frame for later
@@ -2639,7 +2650,7 @@ for thisAudioDistractorFile in AudioDistractorFiles:
             prevButtonState = mouse_3.getPressed()  # if button is down already this ISN'T a new click
         if mouse_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse_3.tStartRefresh + 0.7-frameTolerance:
+            if tThisFlipGlobal > mouse_3.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
                 mouse_3.tStop = t  # not accounting for scr refresh
                 mouse_3.frameNStop = frameN  # exact frame index
@@ -2658,8 +2669,6 @@ for thisAudioDistractorFile in AudioDistractorFiles:
                     mouse_3.midButton.append(buttons[1])
                     mouse_3.rightButton.append(buttons[2])
                     mouse_3.time.append(mouse_3.mouseClock.getTime())
-                    
-                    continueRoutine = False  # abort routine on response
         
         # *whiteimage_3* updates
         if whiteimage_3.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -2671,7 +2680,7 @@ for thisAudioDistractorFile in AudioDistractorFiles:
             whiteimage_3.setAutoDraw(True)
         if whiteimage_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > whiteimage_3.tStartRefresh + 0.5-frameTolerance:
+            if tThisFlipGlobal > whiteimage_3.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 whiteimage_3.tStop = t  # not accounting for scr refresh
                 whiteimage_3.frameNStop = frameN  # exact frame index
