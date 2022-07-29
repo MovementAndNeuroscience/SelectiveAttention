@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juli 27, 2022, at 15:14
+    on juli 29, 2022, at 08:40
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -69,7 +69,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 720], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[1.0000, 1.0000, 1.0000], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -98,7 +98,7 @@ defaultKeyboard = keyboard.Keyboard(backend='iohub')
 # Initialize components for Routine "Intro"
 IntroClock = core.Clock()
 IntroText = visual.TextStim(win=win, name='IntroText',
-    text='Velkommen til Opmærksomheds testen. \n\nDu vil blive præsenteret for bogstaver\nhold øje med b og p. \nEn af dem vil være i højre eller venstre side af skærmen. \nHvis du ser p klik til venstre på musen\nHvis du ser b klik til højre på musen\nKlik når skærmen bliver sort\n\ngod fornøjelse ',
+    text='Velkommen til Opmærksomheds testen. \n\nDu vil blive præsenteret for bogstaver\nhold øje med b og p. \nEn af dem vil være i højre eller venstre side af skærmen. \nHvis du ser p klik til venstre på musen\nHvis du ser b klik til højre på musen\nKlik så snart du ved hvilke bogstav der kom frem\n\ngod fornøjelse ',
     font='Open Sans',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -686,7 +686,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     
     # ------Prepare to start Routine "VisualDistractorStimuli"-------
     continueRoutine = True
-    routineTimer.add(6.000000)
+    routineTimer.add(5.200000)
     # update component parameters for each repeat
     p_targetpos = (1,1)
     b_targetpos = (1,1)
@@ -882,7 +882,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             p_Target_2.setAutoDraw(True)
         if p_Target_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > p_Target_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > p_Target_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 p_Target_2.tStop = t  # not accounting for scr refresh
                 p_Target_2.frameNStop = frameN  # exact frame index
@@ -899,7 +899,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             b_Target_2.setAutoDraw(True)
         if b_Target_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > b_Target_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > b_Target_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 b_Target_2.tStop = t  # not accounting for scr refresh
                 b_Target_2.frameNStop = frameN  # exact frame index
@@ -916,7 +916,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             p_Distractor_2.setAutoDraw(True)
         if p_Distractor_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > p_Distractor_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > p_Distractor_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 p_Distractor_2.tStop = t  # not accounting for scr refresh
                 p_Distractor_2.frameNStop = frameN  # exact frame index
@@ -933,7 +933,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             b_Distractor_2.setAutoDraw(True)
         if b_Distractor_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > b_Distractor_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > b_Distractor_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 b_Distractor_2.tStop = t  # not accounting for scr refresh
                 b_Distractor_2.frameNStop = frameN  # exact frame index
@@ -950,7 +950,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             g_Distractor_2.setAutoDraw(True)
         if g_Distractor_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > g_Distractor_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > g_Distractor_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 g_Distractor_2.tStop = t  # not accounting for scr refresh
                 g_Distractor_2.frameNStop = frameN  # exact frame index
@@ -967,7 +967,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             h_Filler_2.setAutoDraw(True)
         if h_Filler_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > h_Filler_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > h_Filler_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 h_Filler_2.tStop = t  # not accounting for scr refresh
                 h_Filler_2.frameNStop = frameN  # exact frame index
@@ -984,7 +984,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             l_Filler_2.setAutoDraw(True)
         if l_Filler_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > l_Filler_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > l_Filler_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 l_Filler_2.tStop = t  # not accounting for scr refresh
                 l_Filler_2.frameNStop = frameN  # exact frame index
@@ -1001,7 +1001,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
             y_filler_2.setAutoDraw(True)
         if y_filler_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > y_filler_2.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > y_filler_2.tStartRefresh + 0.2-frameTolerance:
                 # keep track of stop time/frame for later
                 y_filler_2.tStop = t  # not accounting for scr refresh
                 y_filler_2.frameNStop = frameN  # exact frame index
@@ -1064,7 +1064,7 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
                     mouse_2.time.append(mouse_2.mouseClock.getTime())
         
         # *whiteimage_2* updates
-        if whiteimage_2.status == NOT_STARTED and tThisFlip >= 1-frameTolerance:
+        if whiteimage_2.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             whiteimage_2.frameNStart = frameN  # exact frame index
             whiteimage_2.tStart = t  # local t and not account for scr refresh
