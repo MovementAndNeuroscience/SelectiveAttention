@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.1.3),
-    on juli 29, 2022, at 08:40
+    on august 11, 2022, at 15:05
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -29,10 +29,13 @@ from psychopy.hardware import keyboard
 
 import numpy as np
 
+from psychopy.hardware import keyboard
 
 
+from psychopy.hardware import keyboard
 
 
+from psychopy.hardware import keyboard
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -203,9 +206,7 @@ isItB = False;
 enableSadface = False;
 enableHappyface = False;
 enableFaster = False;
-mouse_2 = event.Mouse(win=win)
-x, y = [None, None]
-mouse_2.mouseClock = core.Clock()
+Key_2 = keyboard.Keyboard()
 whiteimage_2 = visual.ImageStim(
     win=win,
     name='whiteimage_2', 
@@ -341,9 +342,7 @@ b_Dis_Sound.setVolume(1.0)
 g_Dis_Sound = sound.Sound('audio/g_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='g_Dis_Sound')
 g_Dis_Sound.setVolume(1.0)
-mouse = event.Mouse(win=win)
-x, y = [None, None]
-mouse.mouseClock = core.Clock()
+key = keyboard.Keyboard()
 whiteimage = visual.ImageStim(
     win=win,
     name='whiteimage', 
@@ -458,9 +457,7 @@ b_Dis_Sound_2.setVolume(1.0)
 g_Dis_Sound_2 = sound.Sound('audio/g_combined.wav', secs=0.2, stereo=True, hamming=False,
     name='g_Dis_Sound_2')
 g_Dis_Sound_2.setVolume(1.0)
-mouse_3 = event.Mouse(win=win)
-x, y = [None, None]
-mouse_3.mouseClock = core.Clock()
+key_3 = keyboard.Keyboard()
 whiteimage_3 = visual.ImageStim(
     win=win,
     name='whiteimage_3', 
@@ -839,17 +836,11 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
     if targetletter == 'b':
         isItB = True;
         isItP = False; 
-    # setup some python lists for storing info about the mouse_2
-    mouse_2.x = []
-    mouse_2.y = []
-    mouse_2.leftButton = []
-    mouse_2.midButton = []
-    mouse_2.rightButton = []
-    mouse_2.time = []
-    gotValidClick = False  # until a click is received
-    mouse_2.mouseClock.reset()
+    Key_2.keys = []
+    Key_2.rt = []
+    _Key_2_allKeys = []
     # keep track of which components have finished
-    VisualDistractorStimuliComponents = [p_Target_2, b_Target_2, p_Distractor_2, b_Distractor_2, g_Distractor_2, h_Filler_2, l_Filler_2, y_filler_2, mouse_2, whiteimage_2]
+    VisualDistractorStimuliComponents = [p_Target_2, b_Target_2, p_Distractor_2, b_Distractor_2, g_Distractor_2, h_Filler_2, l_Filler_2, y_filler_2, Key_2, whiteimage_2]
     for thisComponent in VisualDistractorStimuliComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1007,61 +998,62 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
                 y_filler_2.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(y_filler_2, 'tStopRefresh')  # time at next scr refresh
                 y_filler_2.setAutoDraw(False)
-        #button[0] = left click = P 
-        #button[2] = right click = B
         
-        buttons = mouse.getPressed()
+        #left alt = P 
+        #right alt = B 
         
-        if isItP and buttons[0] == 1 and mousepressed == 0 :
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False; 
-            mousepressed += 1;
-        elif isItB and buttons[2] == 1 and mousepressed == 0 :
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False;
-            mousepressed += 1;
-        elif isItP and buttons[2] == 1 and mousepressed == 0 :
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False;
-            mousepressed += 1;
-        elif isItB and buttons[0] == 1 and mousepressed == 0 :
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False;
-            mousepressed += 1;
-        # *mouse_2* updates
-        if mouse_2.status == NOT_STARTED and t >= 0-frameTolerance:
+        kb = keyboard.Keyboard();
+        keys = kb.getKeys()
+        
+        if keys:
+            print (keys[-1].name)
+            if isItP and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False; 
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItP and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+        
+        # *Key_2* updates
+        waitOnFlip = False
+        if Key_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            mouse_2.frameNStart = frameN  # exact frame index
-            mouse_2.tStart = t  # local t and not account for scr refresh
-            mouse_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse_2, 'tStartRefresh')  # time at next scr refresh
-            mouse_2.status = STARTED
-            prevButtonState = mouse_2.getPressed()  # if button is down already this ISN'T a new click
-        if mouse_2.status == STARTED:
+            Key_2.frameNStart = frameN  # exact frame index
+            Key_2.tStart = t  # local t and not account for scr refresh
+            Key_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Key_2, 'tStartRefresh')  # time at next scr refresh
+            Key_2.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(Key_2.clock.reset)  # t=0 on next screen flip
+        if Key_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse_2.tStartRefresh + 5.2-frameTolerance:
+            if tThisFlipGlobal > Key_2.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
-                mouse_2.tStop = t  # not accounting for scr refresh
-                mouse_2.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(mouse_2, 'tStopRefresh')  # time at next scr refresh
-                mouse_2.status = FINISHED
-        if mouse_2.status == STARTED:  # only update if started and not finished!
-            buttons = mouse_2.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
-                    x, y = mouse_2.getPos()
-                    mouse_2.x.append(x)
-                    mouse_2.y.append(y)
-                    buttons = mouse_2.getPressed()
-                    mouse_2.leftButton.append(buttons[0])
-                    mouse_2.midButton.append(buttons[1])
-                    mouse_2.rightButton.append(buttons[2])
-                    mouse_2.time.append(mouse_2.mouseClock.getTime())
+                Key_2.tStop = t  # not accounting for scr refresh
+                Key_2.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(Key_2, 'tStopRefresh')  # time at next scr refresh
+                Key_2.status = FINISHED
+        if Key_2.status == STARTED and not waitOnFlip:
+            theseKeys = Key_2.getKeys(keyList=['lalt','ralt'], waitRelease=False)
+            _Key_2_allKeys.extend(theseKeys)
+            if len(_Key_2_allKeys):
+                Key_2.keys = [key.name for key in _Key_2_allKeys]  # storing all keys
+                Key_2.rt = [key.rt for key in _Key_2_allKeys]
         
         # *whiteimage_2* updates
         if whiteimage_2.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -1134,15 +1126,14 @@ for thisVisualDistractionTrial in VisualDistractionTrials:
         
     
     
-    # store data for VisualDistractionTrials (TrialHandler)
-    VisualDistractionTrials.addData('mouse_2.x', mouse_2.x)
-    VisualDistractionTrials.addData('mouse_2.y', mouse_2.y)
-    VisualDistractionTrials.addData('mouse_2.leftButton', mouse_2.leftButton)
-    VisualDistractionTrials.addData('mouse_2.midButton', mouse_2.midButton)
-    VisualDistractionTrials.addData('mouse_2.rightButton', mouse_2.rightButton)
-    VisualDistractionTrials.addData('mouse_2.time', mouse_2.time)
-    VisualDistractionTrials.addData('mouse_2.started', mouse_2.tStart)
-    VisualDistractionTrials.addData('mouse_2.stopped', mouse_2.tStop)
+    # check responses
+    if Key_2.keys in ['', [], None]:  # No response was made
+        Key_2.keys = None
+    VisualDistractionTrials.addData('Key_2.keys',Key_2.keys)
+    if Key_2.keys != None:  # we had a response
+        VisualDistractionTrials.addData('Key_2.rt', Key_2.rt)
+    VisualDistractionTrials.addData('Key_2.started', Key_2.tStartRefresh)
+    VisualDistractionTrials.addData('Key_2.stopped', Key_2.tStopRefresh)
     VisualDistractionTrials.addData('whiteimage_2.started', whiteimage_2.tStartRefresh)
     VisualDistractionTrials.addData('whiteimage_2.stopped', whiteimage_2.tStopRefresh)
     
@@ -1502,7 +1493,7 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
         elif target == 'b' and dist == 'b' and allowedBCongruence > 0:
             allowedBCongruence = allowedBCongruence -1; 
             thisExp.addData('Condition', 'Congruent')
-            return target, dist, allowedPCongruence, allowedPIncongruenceA, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;   
+            return target, dist, allowedPCongruence, allowedPIncongruence, allowedPNeutral, allowedBCongruence, allowedBIncongruence, allowedBNeutral;   
         elif target == 'b' and dist == 'g' and allowedBNeutral > 0:
             allowedBNeutral = allowedBNeutral -1; 
             thisExp.addData('Condition', 'Neutral')
@@ -1623,17 +1614,11 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
     if targetletter == 'b':
         isItB = True;
         isItP = False; 
-    # setup some python lists for storing info about the mouse
-    mouse.x = []
-    mouse.y = []
-    mouse.leftButton = []
-    mouse.midButton = []
-    mouse.rightButton = []
-    mouse.time = []
-    gotValidClick = False  # until a click is received
-    mouse.mouseClock.reset()
+    key.keys = []
+    key.rt = []
+    _key_allKeys = []
     # keep track of which components have finished
-    AudioVisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler, p_Dis_Sound, b_Dis_Sound, g_Dis_Sound, mouse, whiteimage]
+    AudioVisualDistractorStimuliComponents = [p_Target, b_Target, p_Distractor, b_Distractor, g_Distractor, h_Filler, l_Filler, y_filler, p_Dis_Sound, b_Dis_Sound, g_Dis_Sound, key, whiteimage]
     for thisComponent in AudioVisualDistractorStimuliComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1836,61 +1821,61 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
                 g_Dis_Sound.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(g_Dis_Sound, 'tStopRefresh')  # time at next scr refresh
                 g_Dis_Sound.stop()
-        #button[0] = left click = P 
-        #button[2] = right click = B
+        #left alt = P 
+        #right alt = B 
         
-        buttons = mouse.getPressed()
+        kb = keyboard.Keyboard();
+        keys = kb.getKeys()
         
-        if isItP and buttons[0] == 1 and mousepressed == 0:
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False; 
-            mousepressed += 1;
-        elif isItB and buttons[2] == 1 and mousepressed == 0:
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False;
-            mousepressed += 1;
-        elif isItP and buttons[2] == 1 and mousepressed == 0:
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False;
-            mousepressed += 1;
-        elif isItB and buttons[0] == 1 and mousepressed == 0:
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False; 
-            mousepressed += 1;
-        # *mouse* updates
-        if mouse.status == NOT_STARTED and t >= 0-frameTolerance:
+        if keys:
+            print (keys[-1].name)
+            if isItP and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False; 
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItP and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+        
+        # *key* updates
+        waitOnFlip = False
+        if key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            mouse.frameNStart = frameN  # exact frame index
-            mouse.tStart = t  # local t and not account for scr refresh
-            mouse.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
-            mouse.status = STARTED
-            prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-        if mouse.status == STARTED:
+            key.frameNStart = frameN  # exact frame index
+            key.tStart = t  # local t and not account for scr refresh
+            key.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key, 'tStartRefresh')  # time at next scr refresh
+            key.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(key.clock.reset)  # t=0 on next screen flip
+        if key.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse.tStartRefresh + 5.2-frameTolerance:
+            if tThisFlipGlobal > key.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
-                mouse.tStop = t  # not accounting for scr refresh
-                mouse.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(mouse, 'tStopRefresh')  # time at next scr refresh
-                mouse.status = FINISHED
-        if mouse.status == STARTED:  # only update if started and not finished!
-            buttons = mouse.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
-                    x, y = mouse.getPos()
-                    mouse.x.append(x)
-                    mouse.y.append(y)
-                    buttons = mouse.getPressed()
-                    mouse.leftButton.append(buttons[0])
-                    mouse.midButton.append(buttons[1])
-                    mouse.rightButton.append(buttons[2])
-                    mouse.time.append(mouse.mouseClock.getTime())
+                key.tStop = t  # not accounting for scr refresh
+                key.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(key, 'tStopRefresh')  # time at next scr refresh
+                key.status = FINISHED
+        if key.status == STARTED and not waitOnFlip:
+            theseKeys = key.getKeys(keyList=['lalt','ralt'], waitRelease=False)
+            _key_allKeys.extend(theseKeys)
+            if len(_key_allKeys):
+                key.keys = [key.name for key in _key_allKeys]  # storing all keys
+                key.rt = [key.rt for key in _key_allKeys]
         
         # *whiteimage* updates
         if whiteimage.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -1972,15 +1957,14 @@ for thisVisualAndAudioDistractor in VisualAndAudioDistractor:
         
     
     
-    # store data for VisualAndAudioDistractor (TrialHandler)
-    VisualAndAudioDistractor.addData('mouse.x', mouse.x)
-    VisualAndAudioDistractor.addData('mouse.y', mouse.y)
-    VisualAndAudioDistractor.addData('mouse.leftButton', mouse.leftButton)
-    VisualAndAudioDistractor.addData('mouse.midButton', mouse.midButton)
-    VisualAndAudioDistractor.addData('mouse.rightButton', mouse.rightButton)
-    VisualAndAudioDistractor.addData('mouse.time', mouse.time)
-    VisualAndAudioDistractor.addData('mouse.started', mouse.tStart)
-    VisualAndAudioDistractor.addData('mouse.stopped', mouse.tStop)
+    # check responses
+    if key.keys in ['', [], None]:  # No response was made
+        key.keys = None
+    VisualAndAudioDistractor.addData('key.keys',key.keys)
+    if key.keys != None:  # we had a response
+        VisualAndAudioDistractor.addData('key.rt', key.rt)
+    VisualAndAudioDistractor.addData('key.started', key.tStartRefresh)
+    VisualAndAudioDistractor.addData('key.stopped', key.tStopRefresh)
     VisualAndAudioDistractor.addData('whiteimage.started', whiteimage.tStartRefresh)
     VisualAndAudioDistractor.addData('whiteimage.stopped', whiteimage.tStopRefresh)
     
@@ -2452,17 +2436,11 @@ for thisAudioDistractorFile in AudioDistractorFiles:
     if targetletter == 'b':
         isItB = True;
         isItP = False; 
-    # setup some python lists for storing info about the mouse_3
-    mouse_3.x = []
-    mouse_3.y = []
-    mouse_3.leftButton = []
-    mouse_3.midButton = []
-    mouse_3.rightButton = []
-    mouse_3.time = []
-    gotValidClick = False  # until a click is received
-    mouse_3.mouseClock.reset()
+    key_3.keys = []
+    key_3.rt = []
+    _key_3_allKeys = []
     # keep track of which components have finished
-    AudioDistractorStimuliComponents = [p_Target_3, b_Target_3, h_Filler_3, l_Filler_3, y_filler_3, p_Dis_Sound_2, b_Dis_Sound_2, g_Dis_Sound_2, mouse_3, whiteimage_3]
+    AudioDistractorStimuliComponents = [p_Target_3, b_Target_3, h_Filler_3, l_Filler_3, y_filler_3, p_Dis_Sound_2, b_Dis_Sound_2, g_Dis_Sound_2, key_3, whiteimage_3]
     for thisComponent in AudioDistractorStimuliComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -2614,61 +2592,62 @@ for thisAudioDistractorFile in AudioDistractorFiles:
                 g_Dis_Sound_2.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(g_Dis_Sound_2, 'tStopRefresh')  # time at next scr refresh
                 g_Dis_Sound_2.stop()
-        #button[0] = left click = P 
-        #button[2] = right click = B
         
-        buttons = mouse.getPressed()
+        #left alt = P 
+        #right alt = B 
         
-        if isItP and buttons[0] == 1 and mousepressed == 0:
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False; 
-            mousepressed += 1; 
-        elif isItB and buttons[2] == 1 and mousepressed == 0:
-            enableHappyface = True;
-            enableSadface = False;
-            enableFaster = False;
-            mousepressed += 1; 
-        elif isItP and buttons[2] == 1 and mousepressed == 0:
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False; 
-            mousepressed += 1; 
-        elif isItB and buttons[0] == 1 and mousepressed == 0:
-            enableHappyface = False;
-            enableSadface = True;
-            enableFaster = False; 
-            mousepressed += 1; 
-        # *mouse_3* updates
-        if mouse_3.status == NOT_STARTED and t >= 0-frameTolerance:
+        kb = keyboard.Keyboard();
+        keys = kb.getKeys()
+        
+        if keys:
+            print (keys[-1].name)
+            if isItP and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False; 
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = True;
+                enableSadface = False;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItP and keys[-1].name == 'ralt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+            elif isItB and keys[-1].name == 'lalt' and mousepressed == 0 :
+                enableHappyface = False;
+                enableSadface = True;
+                enableFaster = False;
+                mousepressed += 1;
+        
+        # *key_3* updates
+        waitOnFlip = False
+        if key_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            mouse_3.frameNStart = frameN  # exact frame index
-            mouse_3.tStart = t  # local t and not account for scr refresh
-            mouse_3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse_3, 'tStartRefresh')  # time at next scr refresh
-            mouse_3.status = STARTED
-            prevButtonState = mouse_3.getPressed()  # if button is down already this ISN'T a new click
-        if mouse_3.status == STARTED:
+            key_3.frameNStart = frameN  # exact frame index
+            key_3.tStart = t  # local t and not account for scr refresh
+            key_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key_3, 'tStartRefresh')  # time at next scr refresh
+            key_3.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(key_3.clock.reset)  # t=0 on next screen flip
+        if key_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > mouse_3.tStartRefresh + 5.2-frameTolerance:
+            if tThisFlipGlobal > key_3.tStartRefresh + 5.2-frameTolerance:
                 # keep track of stop time/frame for later
-                mouse_3.tStop = t  # not accounting for scr refresh
-                mouse_3.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(mouse_3, 'tStopRefresh')  # time at next scr refresh
-                mouse_3.status = FINISHED
-        if mouse_3.status == STARTED:  # only update if started and not finished!
-            buttons = mouse_3.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
-                    x, y = mouse_3.getPos()
-                    mouse_3.x.append(x)
-                    mouse_3.y.append(y)
-                    buttons = mouse_3.getPressed()
-                    mouse_3.leftButton.append(buttons[0])
-                    mouse_3.midButton.append(buttons[1])
-                    mouse_3.rightButton.append(buttons[2])
-                    mouse_3.time.append(mouse_3.mouseClock.getTime())
+                key_3.tStop = t  # not accounting for scr refresh
+                key_3.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(key_3, 'tStopRefresh')  # time at next scr refresh
+                key_3.status = FINISHED
+        if key_3.status == STARTED and not waitOnFlip:
+            theseKeys = key_3.getKeys(keyList=['lalt','ralt'], waitRelease=False)
+            _key_3_allKeys.extend(theseKeys)
+            if len(_key_3_allKeys):
+                key_3.keys = [key.name for key in _key_3_allKeys]  # storing all keys
+                key_3.rt = [key.rt for key in _key_3_allKeys]
         
         # *whiteimage_3* updates
         if whiteimage_3.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
@@ -2744,15 +2723,14 @@ for thisAudioDistractorFile in AudioDistractorFiles:
         
     
     
-    # store data for AudioDistractorFiles (TrialHandler)
-    AudioDistractorFiles.addData('mouse_3.x', mouse_3.x)
-    AudioDistractorFiles.addData('mouse_3.y', mouse_3.y)
-    AudioDistractorFiles.addData('mouse_3.leftButton', mouse_3.leftButton)
-    AudioDistractorFiles.addData('mouse_3.midButton', mouse_3.midButton)
-    AudioDistractorFiles.addData('mouse_3.rightButton', mouse_3.rightButton)
-    AudioDistractorFiles.addData('mouse_3.time', mouse_3.time)
-    AudioDistractorFiles.addData('mouse_3.started', mouse_3.tStart)
-    AudioDistractorFiles.addData('mouse_3.stopped', mouse_3.tStop)
+    # check responses
+    if key_3.keys in ['', [], None]:  # No response was made
+        key_3.keys = None
+    AudioDistractorFiles.addData('key_3.keys',key_3.keys)
+    if key_3.keys != None:  # we had a response
+        AudioDistractorFiles.addData('key_3.rt', key_3.rt)
+    AudioDistractorFiles.addData('key_3.started', key_3.tStartRefresh)
+    AudioDistractorFiles.addData('key_3.stopped', key_3.tStopRefresh)
     AudioDistractorFiles.addData('whiteimage_3.started', whiteimage_3.tStartRefresh)
     AudioDistractorFiles.addData('whiteimage_3.stopped', whiteimage_3.tStopRefresh)
     
